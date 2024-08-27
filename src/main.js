@@ -32,7 +32,7 @@ const onFormSearchSubmit = async evt => {
   evt.preventDefault();
   try {
     page = 1;
-    limitImgPerPage = 150;
+    limitImgPerPage = 15;
 
     const inputWordSearch = evt.target.elements.search.value.trim();
 
@@ -69,7 +69,8 @@ const onFormSearchSubmit = async evt => {
     btnLoadMoreImg.classList.remove('active');
 
     const createLoaderMore = `<div class="loader"></div>`;
-    loaderContainer.insertAdjacentHTML('afterbegin', createLoaderMore);
+    loaderContainer.innerHTML = createLoaderMore;
+    loaderContainer.classList.add('active');
 
     formSearchImg.reset();
   } catch (error) {
